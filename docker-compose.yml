@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: gms-site
+    restart: always
+    env_file:
+      - .env.local
+    networks:
+      - coolify
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.gms.rule=Host(`gabonmanagementservices.ga`)"
+      - "traefik.http.routers.gms.entrypoints=http,https"
+      - "traefik.http.routers.gms.tls.certresolver=letsencrypt"
+      - "traefik.http.services.gms.loadbalancer.server.port=3000"
+      - "traefik.docker.network=coolify"
+      # Timeout configurations
+      - "traefik.http.middlewares.gms-timeout.buffering.maxRequestBodyBytes=10485760"
+      - "traefik.http.middlewares.gms-timeout.buffering.memRequestBodyBytes=2097152"
+      - "traefik.http.middlewares.gms-timeout.buffering.maxResponseBodyBytes=10485760"
+      - "traefik.http.middlewares.gms-timeout.buffering.memResponseBodyBytes=2097152"
+      - "traefik.http.routers.gms.middlewares=gms-timeout"
+
+networks:
+  coolify:
+    external: true

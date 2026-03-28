@@ -1,0 +1,55 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# Fichiers sensibles et temporaires
+env_base64.txt
+key_dump.txt
+service_key.txt
+temp_vps_env.txt
+clean_key_ps.txt
+roo8o0Yf2a50Vw9la
+lint_errors.txt
+lint_report.json
+error_response.json
+placeholder_debug.txt
+ACCES_TECHNIQUE_VPS_SUPABASE.md
+SYNTHESE_VPS.md
